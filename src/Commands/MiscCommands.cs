@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /*
  *  This file is part of uEssentials project.
  *      https://uessentials.github.io/
@@ -834,7 +834,7 @@ namespace Essentials.Commands {
                 .Select(r => r.transform.GetComponent<InteractableGenerator>())
                 .Where(r => r != null)
                 .ForEach(r => {
-                    BarricadeManager.sendFuel(r.transform, (ushort) Math.Floor(r.capacity * percentage));
+                    BarricadeManager.sendFuel(r.transform, (ushort) System.Math.Floor(r.capacity * percentage));
                     count++;
                 });
 
