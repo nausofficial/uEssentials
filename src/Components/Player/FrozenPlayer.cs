@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /*
  *  This file is part of uEssentials project.
  *      https://uessentials.github.io/
@@ -21,6 +21,7 @@
 */
 #endregion
 
+/*
 using SDG.Unturned;
 using UnityEngine;
 
@@ -58,3 +59,4 @@ namespace Essentials.Components.Player {
     }
 
 }
+*/
