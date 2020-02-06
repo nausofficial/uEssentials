@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /*
  *  This file is part of uEssentials project.
  *      https://uessentials.github.io/
@@ -21,6 +21,7 @@
 */
 #endregion
 
+/*
 using System.Linq;
 using Essentials.Api;
 using Essentials.Api.Command;
@@ -79,3 +80,4 @@ namespace Essentials.Commands {
     }
 
 }
+*/
