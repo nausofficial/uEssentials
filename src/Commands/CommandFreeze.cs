@@ -76,7 +76,5 @@ namespace Essentials.Commands {
             UEssentials.EventManager.Unregister<EssentialsEventHandler>("FreezePlayerConnected");
             UEssentials.EventManager.Unregister<EssentialsEventHandler>("FreezePlayerDeath");
         }
-
     }
-
 }
