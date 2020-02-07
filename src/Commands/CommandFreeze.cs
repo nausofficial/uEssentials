@@ -21,7 +21,7 @@
 */
 #endregion
 
-/*
+
 using System.Linq;
 using Essentials.Api;
 using Essentials.Api.Command;
@@ -80,4 +80,3 @@ namespace Essentials.Commands {
     }
 
 }
-*/
