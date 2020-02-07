@@ -21,36 +21,48 @@
 */
 #endregion
 
-/*
 using SDG.Unturned;
 using UnityEngine;
+using Steamworks;
 
-namespace Essentials.Components.Player {
+namespace Essentials.Components.Player
+{
 
-    public class FrozenPlayer : PlayerComponent {
+    public class FrozenPlayer : PlayerComponent
+    {
 
         private readonly Vector3 _frozenPos;
         private Vector3 _lastPos;
+        private CSteamID _player;
 
-        private FrozenPlayer() {
+        private FrozenPlayer()
+        {
             _frozenPos = _lastPos = Player.Position;
 
-            if (!Player.IsInVehicle) return;
+            if (!Player.IsInVehicle)
+            {
+                Rocket.Core.Logging.Logger.LogError("Player is not in vehicle!");
+                return;
+            }
             var veh = Player.CurrentVehicle;
             var passagers = veh.passengers;
 
-            for (var i = 0; i < passagers.Length; i++) {
+            for (var i = 0; i < passagers.Length; i++)
+            {
                 if (passagers[i].player != Player.SteamPlayer) continue;
 
                 var pos = Player.Position;
-                var seat = (byte) i;
+                _player = passagers[i].player.lobbyID;
 
-                veh.getExit(seat, out var exitPoint, out var exitAngle);
-                VehicleManager.sendExitVehicle(veh, seat, (exitPoint + (exitPoint - pos)), exitAngle, false);
+                if (veh.forceRemovePlayer(out var seat, _player, out var point, out var angle))
+                {
+                    VehicleManager.sendExitVehicle(veh, seat, (point + (point - pos)), angle, false);
+                }
             }
         }
 
-        protected override void SafeFixedUpdate() {
+        protected override void SafeFixedUpdate()
+        {
             if (Player.Position == _lastPos) return;
             Player.Teleport(_frozenPos);
             _lastPos = Player.Position;
@@ -59,4 +71,3 @@ namespace Essentials.Components.Player {
     }
 
 }
-*/
